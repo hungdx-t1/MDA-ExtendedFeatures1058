@@ -56,20 +56,20 @@
           <url>https://nexus.scarsz.me/content/groups/public/</url>
       </repository>
       <repository>
-          <id>placeholderapi</id>
-          <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+          <id>andrei1058-repo</id>
+          <url>https://repo.andrei1058.dev/releases/</url>
       </repository>
       <repository>
           <id>papermc-repo</id>
           <url>https://repo.papermc.io/repository/maven-public/</url>
       </repository>
       <repository>
-          <id>sonatype</id>
-          <url>https://oss.sonatype.org/content/groups/public/</url>
+          <id>placeholderapi</id>
+          <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
       </repository>
       <repository>
-          <id>andrei1058-repo</id>
-          <url>https://repo.andrei1058.dev/releases/</url>
+          <id>sonatype</id>
+          <url>https://oss.sonatype.org/content/groups/public/</url>
       </repository>
   </repositories>
 
@@ -84,6 +84,8 @@
           <groupId>com.andrei1058.bedwars</groupId>
           <artifactId>bedwars-api</artifactId>
           <version>24.9</version>
+          <scope>system</scope>
+          <systemPath>${project.basedir}/libs/bedwars-plugin-24.9.jar</systemPath>
       </dependency>
       <dependency>
           <groupId>com.destroystokyo.paper</groupId>

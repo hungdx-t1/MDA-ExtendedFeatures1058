@@ -7,9 +7,12 @@ import github.scarsz.discordsrv.dependencies.jda.api.events.interaction.SlashCom
 import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.OptionType;
 import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.build.CommandData;
 import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.build.SubcommandData;
+import mino.dx.mdaextendedfeatures1058.events.player.PlayerJoinListener;
+import mino.dx.mdaextendedfeatures1058.events.server.GameEndListener;
 import mino.dx.mdaextendedfeatures1058.features.DiscordHook;
 import mino.dx.mdaextendedfeatures1058.utils.StatsCacheManager;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -58,6 +61,10 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
+
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(cacheManager), this);
+        getServer().getPluginManager().registerEvents(new GameEndListener(cacheManager), this);
+
         getLogger().info("MDA-ExtendedFeatures1058 has been enabled!");
     }
 
