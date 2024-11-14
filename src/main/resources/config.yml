@@ -1,1 +1,8 @@
+#
+# Bedwars1058-ExtendedFeatures by @MinoMC_YTB
+#
+
+#
+
+# Enable DiscordSRV Hooking API. You need to install DiscordSRV to using this.
 discord-hook: true

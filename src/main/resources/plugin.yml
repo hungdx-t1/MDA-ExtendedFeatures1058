@@ -1,7 +1,7 @@
 name: MDA-ExtendedFeatures1058
 version: '${project.version}'
 main: mino.dx.mdaextendedfeatures1058.MDAExtendedFeatures1058
-depend: [PlaceholderAPI, DiscordSRV]
-softdepend: [BedWars1058]
+depend: [PlaceholderAPI, BedWars1058]
+softdepend: [DiscordSRV]
 authors: [MinoMC_YTB]
 description: Add some new features to BedWars1058
