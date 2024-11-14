@@ -8,6 +8,7 @@ import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.Optio
 import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.build.CommandData;
 import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.build.SubcommandData;
 import mino.dx.mdaextendedfeatures1058.features.DiscordHook;
+import mino.dx.mdaextendedfeatures1058.utils.StatsCacheManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,6 +23,7 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
     private boolean discordHookEnabled;
 
     private DiscordHook discordHook;
+    private StatsCacheManager cacheManager;
 
     String pluginName = "MDA-ExtendedFeatures1058";
     String pluginVersion = getDescription().getVersion();
@@ -34,6 +36,7 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
     @Override
     public void onEnable() {
         // Plugin startup logic
+        cacheManager = new StatsCacheManager();
         discordHook = new DiscordHook(this);
 
         saveDefaultConfig();
@@ -121,5 +124,9 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
     @SlashCommand(path = "bedwars")
     public void statsExecute(SlashCommandEvent event) {
         discordHook.statsExecute(event);
+    }
+
+    public StatsCacheManager getCacheManager() {
+        return cacheManager;
     }
 }
