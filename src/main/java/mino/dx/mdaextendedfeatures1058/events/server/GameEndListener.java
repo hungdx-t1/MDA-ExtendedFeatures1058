@@ -1,7 +1,5 @@
 package mino.dx.mdaextendedfeatures1058.events.server;
 
-import com.andrei1058.bedwars.BedWars;
-import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.events.gameplay.GameEndEvent;
 import me.clip.placeholderapi.PlaceholderAPI;
 import mino.dx.mdaextendedfeatures1058.models.PlayerStatsCache;

@@ -12,7 +12,6 @@ import mino.dx.mdaextendedfeatures1058.events.server.GameEndListener;
 import mino.dx.mdaextendedfeatures1058.features.DiscordHook;
 import mino.dx.mdaextendedfeatures1058.utils.StatsCacheManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
