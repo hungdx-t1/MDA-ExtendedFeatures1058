@@ -12,13 +12,13 @@ public class PlayerStatsUpdater {
     }
 
     public void updateStats(Player player) {
-        String kills = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_kills%");
-        String deaths = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_deaths%");
-        String wins = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_wins%");
-        String bedsDestroyed = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_bedsdestroyed%");
-        String gamesPlayed = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_gamesplayed%");
+        int kills = Integer.parseInt(PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_kills%"));
+        int deaths = Integer.parseInt(PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_deaths%"));
+        int wins = Integer.parseInt(PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_wins%"));
+        int bedsDestroyed = Integer.parseInt(PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_bedsdestroyed%"));
+        int gamesPlayed = Integer.parseInt(PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_gamesplayed%"));
 
         PlayerStatsCache stats = new PlayerStatsCache(player.getName(), kills, deaths, wins, bedsDestroyed, gamesPlayed);
-        cacheManager.cachePlayerStats(player.getName(), stats);
+        cacheManager.updateCache(player.getName(), stats);
     }
 }

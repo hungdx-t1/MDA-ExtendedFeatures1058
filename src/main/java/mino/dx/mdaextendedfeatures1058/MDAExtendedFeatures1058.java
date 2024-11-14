@@ -36,7 +36,7 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
     @Override
     public void onEnable() {
         // Plugin startup logic
-        cacheManager = new StatsCacheManager();
+        cacheManager = new StatsCacheManager(this);
         discordHook = new DiscordHook(this);
 
         saveDefaultConfig();
@@ -64,7 +64,9 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-
+        if(cacheManager != null) {
+            cacheManager.saveCacheToFile();
+        }
         getLogger().info("MDA-ExtendedFeatures1058 has been disabled!");
     }
 
