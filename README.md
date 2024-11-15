@@ -16,3 +16,7 @@ Features:
 1. Download this addon.
 2. Put this into your plugins folder.
 3. Restart your server.
+
+# Dependencies
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
+- [Bedwars1058](https://www.spigotmc.org/resources/bedwars1058-opensource.97320/)
