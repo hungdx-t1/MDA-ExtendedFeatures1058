@@ -1,4 +1,4 @@
-![Logo](./.github/assets/plugin-logo.png)
+![Logo](./.github/assets/plugin-icon.png)
 
 Powered by MinoMC_YTB
 Bedwars1058 Addon which can add new features to improve the player experience.
