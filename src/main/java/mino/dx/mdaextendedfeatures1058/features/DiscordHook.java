@@ -7,10 +7,12 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import mino.dx.mdaextendedfeatures1058.MDAExtendedFeatures1058;
 import mino.dx.mdaextendedfeatures1058.models.PlayerStatsCache;
 import mino.dx.mdaextendedfeatures1058.utils.*;
+import mino.dx.mdaextendedfeatures1058.languages.*;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.awt.*;
+import java.time.Instant;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -76,7 +78,6 @@ public class DiscordHook {
         if(isEnabled(event)) {
             String playerName = event.getOption("player").getAsString();
             Player player = Bukkit.getPlayer(playerName);
-            EmbedBuilder embed = new EmbedBuilder();
 
             if(player != null && player.isOnline()) {
                 new PlayerStatsUpdater(cacheManager).updateStats(player);
@@ -87,7 +88,7 @@ public class DiscordHook {
                 String bedsDestroyed = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_bedsdestroyed%");
                 String gamesPlayed = PlaceholderAPI.setPlaceholders(player, "%bw1058_stats_gamesplayed%");
 
-                // Normal reply
+                // Normal reply (old)
                 String playerInfo = "**Player Stats for " + playerName + "**\n" +
                         "Kills: " + kills + "\n" +
                         "Deaths: " + deaths + "\n" +
@@ -96,39 +97,30 @@ public class DiscordHook {
                         "Games Played: " + gamesPlayed;
 
                 // Embed reply
-                embed.setTitle(playerName + "'s Stats:");
-                embed.setColor(Color.BLUE);
-
-                embed.addField("Kills", kills,true);
-                embed.addField("Deaths", deaths,true);
-                embed.addField("Wins", wins,true);
-                embed.addField("Beds Destroyed", bedsDestroyed,true);
-                embed.addField("Games Played", gamesPlayed,true);
-
+                EmbedBuilder embed = buildEmbedForPlayer(playerName, kills, deaths, wins, bedsDestroyed, gamesPlayed);
                 // event.reply(playerInfo).queue();
                 event.replyEmbeds(embed.build()).queue();
 
             } else if (cacheManager != null && cacheManager.isCached(playerName)) {
                 PlayerStatsCache stats = cacheManager.getPlayerStats(playerName);
 
-                // Normal reply
-                String playerInfo = "**Player Stats for " + stats.getPlayerName() + "**\n" +
-                        "Kills: " + stats.getKills() + "\n" +
-                        "Deaths: " + stats.getDeaths() + "\n" +
-                        "Wins: " + stats.getWins() + "\n" +
-                        "Beds Destroyed: " + stats.getBedsDestroyed() + "\n" +
-                        "Games Played: " + stats.getGamesPlayed();
+                String playerName_rep = stats.getPlayerName();
+                String kills = String.valueOf(stats.getKills());
+                String deaths = String.valueOf(stats.getDeaths());
+                String wins = String.valueOf(stats.getWins());
+                String bedsDestroyed = String.valueOf(stats.getBedsDestroyed());
+                String gamesPlayed = String.valueOf(stats.getGamesPlayed());
+
+                // Normal reply (old)
+                String playerInfo = "**Player Stats for " + playerName_rep + "**\n" +
+                        "Kills: " + kills + "\n" +
+                        "Deaths: " + deaths + "\n" +
+                        "Wins: " + wins + "\n" +
+                        "Beds Destroyed: " + bedsDestroyed + "\n" +
+                        "Games Played: " + gamesPlayed;
 
                 // Embed reply
-                embed.setTitle(stats.getPlayerName() + "'s Stats:");
-                embed.setColor(Color.BLUE);
-
-                embed.addField("Kills", String.valueOf(stats.getKills()),true);
-                embed.addField("Deaths", String.valueOf(stats.getWins()),true);
-                embed.addField("Wins", String.valueOf(stats.getWins()),true);
-                embed.addField("Beds Destroyed", String.valueOf(stats.getBedsDestroyed()),true);
-                embed.addField("Games Played", String.valueOf(stats.getGamesPlayed()),true);
-
+                EmbedBuilder embed = buildEmbedForPlayer(playerName_rep, kills, deaths, wins, bedsDestroyed, gamesPlayed);
                 // event.reply(playerInfo).queue();
                 event.replyEmbeds(embed.build()).queue();
 
@@ -136,5 +128,29 @@ public class DiscordHook {
                 event.reply("No stats found for player: " + playerName).queue();
             }
         }
+    }
+
+    private EmbedBuilder buildEmbedForPlayer(String playerName, String kills, String deaths, String wins,
+                                             String bedsDestroyed, String gamesPlayed) {
+        EmbedBuilder embed = new EmbedBuilder();
+
+        embed.setAuthor(Messages.getAuthorName(), Messages.getAuthorUrl(), Messages.getAuthorIconUrl());
+        embed.setTitle(Messages.getTitle().replace("%player_name%", playerName));
+        embed.setDescription(Messages.getDescription());
+        embed.setColor(Color.decode(Messages.getHexColor()));
+
+        // Changes Later...
+        embed.addField(Messages.getKillsText(), kills,true);
+        embed.addField(Messages.getDeathsText(), deaths,true);
+        embed.addField(Messages.getWinsText(), wins,true);
+        embed.addField(Messages.getBedsDestroyedText(), bedsDestroyed,true);
+        embed.addField(Messages.getGamesPlayedText(), gamesPlayed,true);
+
+        String footer = Messages.getFooter();
+        if (footer != null && !footer.isEmpty()) {
+            embed.setFooter(footer);
+        }
+        embed.setTimestamp(Instant.now());
+        return embed;
     }
 }

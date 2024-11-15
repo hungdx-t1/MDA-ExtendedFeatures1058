@@ -6,3 +6,6 @@
 
 # Enable DiscordSRV Hooking API. You need to install DiscordSRV to using this.
 discord-hook: true
+
+# Set language of plugin
+locale: vi

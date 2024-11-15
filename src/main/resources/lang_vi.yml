@@ -1,0 +1,45 @@
+# set locale to 'vi' to apply changes.
+
+discord-hook:
+  content: ''
+  embed-author:
+    author: '@MinoMC_YTB'
+    author-url: ''
+    author-icon-url: ''
+  embed-body:
+    title: '%player_name%''s Stats'
+    description: 'Số liệu của người chơi này được hiện:'
+    url: ''
+    hex-color: '#58b9ff'
+  embed-fields:
+    text:
+      kills-text: '**Số lần giết:**'
+      deaths-text: '**Số lần chết:**'
+      wins-text: '**Số trận thắng:**'
+      bedsDestroyed-text: '**Số lần phá giường:**'
+      gamesPlayed-text: '**Tổng số trận chơi:**'
+    all-stats:
+      kills-value: '%bw1058_stats_kills%'
+      deaths-value: '%bw1058_stats_deaths%'
+      wins-value: '%bw1058_stats_wins%'
+      bedsDestroyed-value: '%bw1058_stats_bedsdestroyed%'
+      gamesPlayed-value: '%bw1058_stats_gamesplayed%'
+    solo:
+      kills-value: '%groupstats_solo_kills%'
+      deaths-value: '%groupstats_solo_deaths%'
+      wins-value: '%groupstats_solo_wins%'
+      bedsDestroyed-value: '%groupstats_solo_bedsBroken%'
+      gamesPlayed-value: '%groupstats_solo_gamesPlayed%'
+    4v4v4v4:
+      kills-value: '%groupstats_4v4v4v4_kills%'
+      deaths-value: '%groupstats_4v4v4v4_deaths%'
+      wins-value: '%groupstats_4v4v4v4_wins'
+      bedsDestroyed-value: '%groupstats_4v4v4v4_bedsBroken%'
+      gamesPlayed-value: '%groupstats_4v4v4v4_gamesPlayed%'
+  embed-images:
+    image-urls: ''
+    thumbnail-url: ''
+  embed-footer:
+    footer: '@MinoMC_YTB - Footer'
+    timestamp: ''
+    footer-icon-url: ''

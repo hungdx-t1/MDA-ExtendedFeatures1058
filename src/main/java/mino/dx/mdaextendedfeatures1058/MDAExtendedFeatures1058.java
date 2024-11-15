@@ -10,6 +10,8 @@ import github.scarsz.discordsrv.dependencies.jda.api.interactions.commands.build
 import mino.dx.mdaextendedfeatures1058.events.player.PlayerJoinListener;
 import mino.dx.mdaextendedfeatures1058.events.server.GameEndListener;
 import mino.dx.mdaextendedfeatures1058.features.DiscordHook;
+import mino.dx.mdaextendedfeatures1058.languages.LanguageManager;
+import mino.dx.mdaextendedfeatures1058.languages.Messages;
 import mino.dx.mdaextendedfeatures1058.utils.StatsCacheManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -23,6 +25,7 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
 
     public static MDAExtendedFeatures1058 instance;
     private boolean discordHookEnabled;
+    private LanguageManager languageManager;
 
     private DiscordHook discordHook;
     private StatsCacheManager cacheManager;
@@ -43,6 +46,8 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
 
         saveDefaultConfig();
         discordHookEnabled = getConfig().getBoolean("discord-hook", true);
+        Messages.initialize(this);
+        languageManager = new LanguageManager(this);
 
         if(discordHookEnabled) {
             if(!Bukkit.getPluginManager().isPluginEnabled("DiscordSRV")) {
@@ -136,5 +141,9 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
 
     public StatsCacheManager getCacheManager() {
         return cacheManager;
+    }
+
+    public LanguageManager getLanguageManager() {
+        return languageManager;
     }
 }
