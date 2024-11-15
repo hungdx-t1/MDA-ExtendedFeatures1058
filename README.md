@@ -1,6 +1,7 @@
 ![Logo](./.github/assets/plugin-icon.png)
 
-Powered by MinoMC_YTB
+Powered by MinoMC_YTB.
+
 Bedwars1058 Addon which can add new features to improve the player experience.
 
 [![Discord](https://discordapp.com/api/guilds/978181790118330398/widget.png?style=shield)](https://discord.gg/DVpDADmrgq)
