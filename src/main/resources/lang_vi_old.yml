@@ -1,0 +1,64 @@
+# set locale to 'vi' to apply changes.
+
+discord-hook:
+  content: ''
+  embed-author:
+    author: '@MinoMC_YTB'
+    author-url: 'https://polymart.org/resource/544'
+    author-icon-url: 'https://i.imgur.com/8J8EIUi.png'
+  embed-body:
+    title: '%player_name%''s Stats'
+    description: |
+      **Số liệu của người chơi này được hiện:**
+      
+      :sunglasses: **Số lần giết:** %bw1058_stats_kills%
+      :sob: **Số lần chết:** %bw1058_stats_deaths%
+      :tada: **Số trận thắng:** %bw1058_stats_wins%
+      :thread: **Số lần phá giường:** %bw1058_stats_bedsdestroyed%
+      :video_game: **Tổng số trận chơi:** %bw1058_stats_gamesplayed%
+    url: ''
+    hex-color: '#58b9ff'
+  embed-fields:
+    text:
+      kills-text: '**Số lần giết:**'
+      deaths-text: '**Số lần chết:**'
+      wins-text: '**Số trận thắng:**'
+      bedsDestroyed-text: '**Số lần phá giường:**'
+      gamesPlayed-text: '**Tổng số trận chơi:**'
+    all-stats:
+      kills-value: '%bw1058_stats_kills%'
+      deaths-value: '%bw1058_stats_deaths%'
+      wins-value: '%bw1058_stats_wins%'
+      bedsDestroyed-value: '%bw1058_stats_bedsdestroyed%'
+      gamesPlayed-value: '%bw1058_stats_gamesplayed%'
+    solo:
+      kills-value: '%groupstats_solo_kills%'
+      deaths-value: '%groupstats_solo_deaths%'
+      wins-value: '%groupstats_solo_wins%'
+      bedsDestroyed-value: '%groupstats_solo_bedsBroken%'
+      gamesPlayed-value: '%groupstats_solo_gamesPlayed%'
+    doubles:
+      kills-value: '%groupstats_doubles_kills%'
+      deaths-value: '%groupstats_doubles_deaths%'
+      wins-value: '%groupstats_doubles_wins%'
+      bedsDestroyed-value: '%groupstats_doubles_bedsBroken%'
+      gamesPlayed-value: '%groupstats_doubles_gamesPlayed%'
+    3v3v3v3:
+      kills-value: '%groupstats_3v3v3v3_kills%'
+      deaths-value: '%groupstats_3v3v3v3_deaths%'
+      wins-value: '%groupstats_3v3v3v3_wins%'
+      bedsDestroyed-value: '%groupstats_3v3v3v3_bedsBroken%'
+      gamesPlayed-value: '%groupstats_3v3v3v3_gamesPlayed%'
+    4v4v4v4:
+      kills-value: '%groupstats_4v4v4v4_kills%'
+      deaths-value: '%groupstats_4v4v4v4_deaths%'
+      wins-value: '%groupstats_4v4v4v4_wins'
+      bedsDestroyed-value: '%groupstats_4v4v4v4_bedsBroken%'
+      gamesPlayed-value: '%groupstats_4v4v4v4_gamesPlayed%'
+  embed-images:
+    image-urls: ''
+    thumbnail-url: ''
+  embed-footer:
+    footer: '@MinoMC_YTB - Footer'
+    timestamp: ''
+    footer-icon-url: ''

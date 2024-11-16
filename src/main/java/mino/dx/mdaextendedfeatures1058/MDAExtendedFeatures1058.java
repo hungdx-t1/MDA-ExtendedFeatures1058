@@ -24,7 +24,6 @@ import java.util.Set;
 public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCommandProvider {
 
     public static MDAExtendedFeatures1058 instance;
-    private boolean discordHookEnabled;
     private LanguageManager languageManager;
 
     private DiscordHook discordHook;
@@ -45,20 +44,8 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
         discordHook = new DiscordHook(this);
 
         saveDefaultConfig();
-        discordHookEnabled = getConfig().getBoolean("discord-hook", true);
         Messages.initialize(this);
         languageManager = new LanguageManager(this);
-
-        if(discordHookEnabled) {
-            if(!Bukkit.getPluginManager().isPluginEnabled("DiscordSRV")) {
-                getLogger().severe("DiscordSRV is not installed, disabling...");
-                Bukkit.getPluginManager().disablePlugin(this);
-                return;
-            }
-            getLogger().info("Discord integration is enabled.");
-        } else {
-            getLogger().info("Discord integration is disabled in config.");
-        }
 
         if (Bukkit.getPluginManager().getPlugin("BedWars1058") == null) {
             getLogger().severe("BedWars1058 was not found. Disabling...");
@@ -79,11 +66,6 @@ public final class MDAExtendedFeatures1058 extends JavaPlugin implements SlashCo
             cacheManager.saveCacheToFile();
         }
         getLogger().info("MDA-ExtendedFeatures1058 has been disabled!");
-    }
-
-    // Let DiscordStatsCommand get info config
-    public boolean isDiscordHookEnabled() {
-        return discordHookEnabled;
     }
 
     @Override
